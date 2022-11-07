@@ -6,15 +6,22 @@
 
 IMPLEMENT_RTTI(Bullet);
 
+
+Bullet::Bullet()
+{
+	visible = true;
+	disabled = false;
+}
+
 void Bullet::OnStart(Point)
 {
 }
 
 void Bullet::OnUpdate(float dt)
 {
-	for (auto object : g_Game->objects)
+	for (GameObject* object : g_Game->objects)
 		if (!object->disabled)
-			if (auto bug = dynamic_cast<Bug*>(object))
+			if (Bug* bug = dynamic_cast<Bug*>(object))
 				if (bug->position.Distance(position) < bug->GetRadius())
 				{
 					g_Game->tank->score++;

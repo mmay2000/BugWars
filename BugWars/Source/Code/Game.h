@@ -14,5 +14,24 @@ struct Game : public GameBase
 
 	virtual void OnBugsSpawned() override;
 
+	~Game();
+
 	std::vector<GameObject*> objects;
+
+public:
+
+	struct cell
+	{
+		std::vector<GameObject*> objects;
+		cell* rightNeighbor;
+		cell* leftNeighbor;
+		cell* upNeighbor;
+		cell* downNeighbor;
+		cell* RUDNeighbor;
+		cell* LUDNeighbor;
+		cell* RDDNeighbor;
+		cell* LDDNeighbor;
+	};
+
+	cell gameMap[100][100];
 };
