@@ -30,9 +30,8 @@ BugBase* Bug::FindBugToEat() const
 	D1Y = indY;
 	D4Y = indY;
 	bool done = false;
-	std::queue<Game::cell*> right, left, up, down, RUD, LUD, RDD, LDD;
 
-
+	
 	for (GameObject* object : g_Game->gameMap[indX][indY].objects)
 	{
 		if (object->GetRTTI() == Bug::s_RTTI)
